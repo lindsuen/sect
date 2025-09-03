@@ -1,4 +1,4 @@
-// duder - server.go
+// sect - server.go
 // Copyright (C) 2024 LindSuen <lindsuen@foxmail.com>
 //
 // Use of this source code is governed by a BSD 2-Clause license that can be
@@ -8,10 +8,10 @@ package server
 
 import (
 	"github.com/labstack/echo/v4"
-	cfg "github.com/lindsuen/duder/internal/config"
-	badgerDB "github.com/lindsuen/duder/internal/db"
-	"github.com/lindsuen/duder/server/middleware/logger"
-	"github.com/lindsuen/duder/server/route"
+	cfg "github.com/lindsuen/sect/internal/config"
+	badgerDB "github.com/lindsuen/sect/internal/db"
+	"github.com/lindsuen/sect/server/middleware/logger"
+	"github.com/lindsuen/sect/server/route"
 )
 
 type Server struct {
@@ -33,7 +33,7 @@ func NewServer() *Server {
 	return s
 }
 
-// Start can start the Duder server.
+// Start can start the Sect server.
 func Start() error {
 	serv := NewServer()
 	inst := serv.Instance

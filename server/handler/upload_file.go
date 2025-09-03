@@ -1,4 +1,4 @@
-// duder - upload_file.go
+// sect - upload_file.go
 // Copyright (C) 2025 LindSuen <lindsuen@foxmail.com>
 //
 // Use of this source code is governed by a BSD 2-Clause license that can be
@@ -20,9 +20,9 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v4"
-	cfg "github.com/lindsuen/duder/internal/config"
-	"github.com/lindsuen/duder/internal/db"
-	duder "github.com/lindsuen/duder/server/core"
+	cfg "github.com/lindsuen/sect/internal/config"
+	"github.com/lindsuen/sect/internal/db"
+	sect "github.com/lindsuen/sect/server/core"
 )
 
 type UploadResponse struct {
@@ -56,7 +56,7 @@ func UploadFile(c echo.Context) error {
 		}
 		defer multiFile.Close()
 
-		dstFile := new(duder.File)
+		dstFile := new(sect.File)
 		fileName := fileHeader.Filename
 		fileSize := fileHeader.Size
 		if fileSize > int64(parseMaxLength(cfg.Config.MaxLength)) {
@@ -112,7 +112,7 @@ func parseMaxLength(s string) int {
 	return maxlength
 }
 
-func instantiateFile(f *duder.File, i *FileInfo) {
+func instantiateFile(f *sect.File, i *FileInfo) {
 	i.ID = f.ID
 	i.Name = f.Name
 	i.Size = f.Size

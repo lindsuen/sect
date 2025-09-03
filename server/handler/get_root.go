@@ -1,4 +1,4 @@
-// duder - get_root.go
+// sect - get_root.go
 // Copyright (C) 2024 LindSuen <lindsuen@foxmail.com>
 //
 // Use of this source code is governed by a BSD 2-Clause license that can be

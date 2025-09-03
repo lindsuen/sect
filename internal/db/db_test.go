@@ -1,4 +1,4 @@
-// duder - db_test.go
+// sect - db_test.go
 // Copyright (C) 2025 LindSuen <lindsuen@foxmail.com>
 //
 // Use of this source code is governed by a BSD 2-Clause license that can be

@@ -1,17 +1,17 @@
 FROM debian:bookworm-slim
 
-WORKDIR /usr/local/duder-server
+WORKDIR /usr/local/sect-server
 
 RUN set -e && mkdir config static
 
-COPY ./bin/duder ./
+COPY ./bin/sect ./
 
-COPY ./config/duder.conf ./config/
+COPY ./config/sect.conf ./config/
 
 COPY ./static/index.html ./static/
 
-RUN set -e && chmod +x ./duder
+RUN set -e && chmod +x ./sect
 
 EXPOSE 5363
 
-CMD ["./duder"]
+CMD ["./sect"]

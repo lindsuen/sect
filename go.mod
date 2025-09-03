@@ -1,4 +1,4 @@
-module github.com/lindsuen/duder
+module github.com/lindsuen/sect
 
 go 1.24
 
