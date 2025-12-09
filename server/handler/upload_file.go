@@ -8,7 +8,6 @@ package handler
 
 import (
 	"crypto/sha1"
-	"crypto/sha256"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
@@ -73,7 +72,7 @@ func UploadFile(c echo.Context) error {
 			return err
 		}
 		defer file.Close()
-		hash := sha256.New()
+		hash := sha1.New()
 		_, err = io.Copy(file, io.TeeReader(multiFile, hash))
 		if err != nil {
 			return err
@@ -104,7 +103,7 @@ func createDateDir(basePath string) string {
 func setLocalFileName(name string, timestamp int64) string {
 	nameByte := []byte(name)
 	dataPrefix := fmt.Appendf(nil, "%x", sha1.Sum(nameByte))
-	return string(dataPrefix[:29]) + strconv.FormatInt(timestamp, 10)
+	return string(dataPrefix[:23]) + "_" + strconv.FormatInt(timestamp, 10)
 }
 
 func parseMaxLength(s string) int {

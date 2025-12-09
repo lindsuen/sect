@@ -7,7 +7,6 @@
 package core
 
 import (
-	"encoding/base64"
 	"time"
 
 	"github.com/google/uuid"
@@ -19,11 +18,11 @@ type File struct {
 	Size        int64
 	Path        string
 	CreatedTime int64  // timestamp
-	Hash        string // sha256
+	Hash        string // sha1
 }
 
 func (f *File) SetFileID() {
-	f.ID = base64.RawURLEncoding.EncodeToString([]byte(uuid.New().String()))
+	f.ID = uuid.New().String()
 }
 
 func (f *File) SetFileName(s string) {
